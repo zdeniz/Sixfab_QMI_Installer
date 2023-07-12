@@ -17,6 +17,9 @@ sed -i "s/pi/$username/" qmi_reconnect.service
 mv qmi_reconnect.sh /usr/src/
 mv qmi_reconnect.service /etc/systemd/system/
 
+sed -i "s/metric=0/metric=400/" /etc/udhcpc/default.script
+sed -i '23i \\t\t/usr/sbin/ifmetric $interface $metric' /etc/udhcpc/default.script
+
 systemctl daemon-reload
 systemctl start qmi_reconnect.service
 systemctl enable qmi_reconnect.service

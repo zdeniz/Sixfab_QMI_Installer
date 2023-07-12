@@ -9,6 +9,7 @@ while true; do
 	else
 		echo "Connection down, reconnecting..."
 		sudo ./quectel-CM -s #APN
+		sudo ifmetric wwan0 400
 	fi
 
 	sleep 10

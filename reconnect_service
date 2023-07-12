@@ -4,6 +4,7 @@ After=network.target
 
 [Service]
 ExecStart=/bin/sh /usr/src/qmi_reconnect.sh
+ExecStartPost=/bin/sh ifmetric wwan0 400
 WorkingDirectory=/opt/qmi_files/quectel-CM/
 StandardOutput=inherit
 StandardError=inherit
